@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Modern Portfolio Styles
+   Simple Modern Portfolio Styles
    ========================================================================== */
 
 /* Smooth Scroll */
@@ -7,7 +7,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Section Styling */
+/* Better spacing and typography */
 .page__content {
   h2 {
     font-size: $type-size-2;
@@ -16,454 +16,78 @@ html {
     margin-top: 3rem;
     margin-bottom: 2rem;
     padding-bottom: 0.75rem;
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, $primary-color, $secondary-color) 1;
-
-    a[name] {
-      display: block;
-      position: relative;
-      top: -80px;
-      visibility: hidden;
-    }
+    border-bottom: 3px solid $primary-color;
   }
 
   h3 {
     font-size: $type-size-3;
-    font-weight: 600;
-    color: $dark-gray;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-/* Date Badge Component */
-.date-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.375rem 0.875rem;
-  background: $lighter-gray;
-  color: $dark-gray;
-  border-radius: 20px;
-  font-size: $type-size-7;
-  font-weight: 600;
-  border: 1px solid $border-color;
-
-  &::before {
-    content: "📅";
-    font-size: 0.875em;
-  }
-
-  &.current {
-    background: linear-gradient(135deg, $primary-color, $secondary-color);
-    color: white;
-    border: none;
-  }
-}
-
-/* Company Badge */
-.company-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, $primary-color, $secondary-color);
-  color: white;
-  padding: 0.25rem 0.875rem;
-  border-radius: 20px;
-  font-size: $type-size-6;
-  font-weight: 600;
-  margin-right: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Timeline Component */
-.timeline {
-  position: relative;
-  padding: 2rem 0 2rem 0;
-  margin: 2rem 0;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, $primary-color 0%, $secondary-color 100%);
-
-    @media (max-width: 768px) {
-      left: 20px;
-    }
-  }
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 80px;
-  margin-bottom: 3rem;
-
-  @media (max-width: 768px) {
-    padding-left: 60px;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.timeline-marker {
-  position: absolute;
-  left: 22px;
-  top: 8px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: white;
-  border: 4px solid $primary-color;
-  box-shadow: 0 0 0 4px rgba($primary-color, 0.1);
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    left: 12px;
-    width: 16px;
-    height: 16px;
-    border-width: 3px;
-  }
-
-  &.current {
-    border-color: $secondary-color;
-    box-shadow: 0 0 0 4px rgba($secondary-color, 0.2), 0 0 12px rgba($secondary-color, 0.4);
-    animation: pulse 2s ease-in-out infinite;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 4px rgba($secondary-color, 0.2), 0 0 12px rgba($secondary-color, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 8px rgba($secondary-color, 0.1), 0 0 20px rgba($secondary-color, 0.3);
-  }
-}
-
-.timeline-content {
-  background: white;
-  border-radius: 12px;
-  padding: 1.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
-  border: 1px solid $border-color;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
-  }
-
-  @media (max-width: 768px) {
-    padding: 1.25rem;
-  }
-}
-
-.timeline-header {
-  margin-bottom: 1rem;
-
-  .position-title {
-    font-size: $type-size-4;
     font-weight: 700;
     color: $darker-gray;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-  }
-}
-
-.timeline-description {
-  ul {
-    margin: 0.75rem 0 0 0;
-    padding-left: 0;
-    list-style: none;
-
-    li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.625rem;
-      color: $dark-gray;
-      line-height: 1.6;
-
-      &::before {
-        content: "→";
-        position: absolute;
-        left: 0;
-        color: $primary-color;
-        font-weight: bold;
-        font-size: 1.1em;
-      }
-    }
-  }
-}
-
-/* Project Cards */
-.project-section {
-  margin: 2rem 0;
-}
-
-.project-category {
-  margin-bottom: 2.5rem;
-
-  h3 {
-    font-size: $type-size-3;
-    font-weight: 600;
-    color: $darker-gray;
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;
-    border-left: 4px solid $primary-color;
-  }
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.project-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.75rem;
-  border: 1px solid $border-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
-    border-color: $primary-color;
-  }
-
-  .project-header {
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
 
-    .project-title {
-      font-size: $type-size-4;
+    strong {
       font-weight: 700;
-      color: $darker-gray;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-
-      .company {
-        color: $primary-color;
-        font-weight: 600;
-        font-size: $type-size-6;
-      }
-
-      .year {
-        color: $gray;
-        font-size: $type-size-6;
-
-        &::before {
-          content: "•";
-          margin: 0 0.5rem;
-          color: $light-gray;
-        }
-      }
     }
   }
 
-  .project-description {
-    color: $dark-gray;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-size: $type-size-6;
-  }
-
-  .project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid $lighter-gray;
-  }
-}
-
-/* Skill Pills */
-.skills-container {
-  margin: 2rem 0;
-}
-
-.skill-category {
-  margin-bottom: 2rem;
-
-  .category-label {
-    font-weight: 700;
-    color: $darker-gray;
-    font-size: $type-size-5;
-    margin-bottom: 0.875rem;
-    display: block;
-  }
-
-  .skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.625rem;
-  }
-}
-
-.skill-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: $lighter-gray;
-  color: $dark-gray;
-  border-radius: 20px;
-  font-size: $type-size-6;
-  font-weight: 500;
-  border: 1px solid $border-color;
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    background: white;
-    border-color: $primary-color;
-  }
-
-  &.primary {
-    background: linear-gradient(135deg, $primary-color, $secondary-color);
-    color: white;
-    border: none;
-    font-weight: 600;
-
-    &:hover {
-      box-shadow: 0 4px 12px rgba($primary-color, 0.35);
-    }
-  }
-}
-
-/* Community Cards */
-.community-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.community-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid $border-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  .activity-title {
+  h4 {
     font-size: $type-size-4;
-    font-weight: 700;
-    color: $darker-gray;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-
-  .activity-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.875rem;
-  }
-
-  .activity-description {
-    color: $dark-gray;
-    line-height: 1.6;
-    font-size: $type-size-6;
-  }
-}
-
-/* Education Section */
-.education-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.education-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.75rem;
-  border: 1px solid $border-color;
-  border-left: 4px solid $primary-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-
-  .degree {
-    font-size: $type-size-4;
-    font-weight: 700;
-    color: $darker-gray;
-    margin-bottom: 0.5rem;
-  }
-
-  .institution {
-    color: $primary-color;
     font-weight: 600;
-    margin-bottom: 0.375rem;
-  }
-
-  .date-location {
-    color: $gray;
-    font-size: $type-size-6;
+    color: $dark-gray;
+    margin-top: 1.5rem;
     margin-bottom: 0.75rem;
   }
 
-  .thesis {
-    color: $dark-gray;
+  /* Bold dates stand out */
+  p strong,
+  li strong {
+    color: $primary-color;
+    font-weight: 700;
+  }
+
+  /* Italic for tech/metadata */
+  em {
+    color: $gray;
     font-style: italic;
-    line-height: 1.6;
-    padding-left: 1rem;
-    border-left: 3px solid $lighter-gray;
-    font-size: $type-size-6;
+  }
+
+  /* Better spacing for lists */
+  ul {
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+  }
+
+  /* HR dividers */
+  hr {
+    margin: 3rem 0;
+    border: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $primary-color, transparent);
+  }
+
+  /* Intro paragraph */
+  > p:first-of-type {
+    font-size: $type-size-4;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* Anchor links invisible */
+  a[name] {
+    display: block;
+    position: relative;
+    top: -80px;
+    visibility: hidden;
   }
 }
 
-/* Tech Tag (used in project cards) */
-.tech-tag {
-  display: inline-block;
-  padding: 0.25rem 0.625rem;
-  background: $section-background;
-  color: $dark-gray;
-  border-radius: 6px;
-  font-size: $type-size-7;
-  font-weight: 500;
-  border: 1px solid $border-color;
-}
-
-/* Section Divider */
-.section-divider {
-  height: 3px;
-  background: linear-gradient(90deg, transparent, $primary-color, $secondary-color, transparent);
-  margin: 3rem 0;
-  border: none;
-}
-
-/* Intro Section Polish */
-.page__content > p:first-of-type {
-  font-size: $type-size-4;
-  line-height: 1.7;
-  color: $dark-gray;
-  margin-bottom: 2rem;
+/* Cleaner line height globally */
+body {
+  line-height: 1.6;
 }
