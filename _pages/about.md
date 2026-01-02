@@ -12,7 +12,7 @@ Former physicist turned data scientist and applied research leader. Currently le
 
 ---
 
-## Employment History
+## <a name="employment"></a>Employment History
 
 **Senior Manager, Applied Research** | Thomson Reuters Labs
 _October 2024 — Present_
@@ -64,7 +64,7 @@ _February 2014 — July 2015_
 
 ---
 
-## Projects
+## <a name="projects"></a>Projects
 
 ### Impactful 0-1 ML/AI Projects
 
@@ -87,7 +87,7 @@ Document enrichment and information extraction pipeline optimizations. Improved 
 
 ---
 
-## Community & Extracurricular
+## <a name="community"></a>Community & Extracurricular
 
 **RVATech Summit Founding Organizer** | 2018 — Present
 Founded and organize RVATech's flagship technical conference. Originally launched as RVATech Data Summit (2018-2023), rebranded to RVATech AI Summit in 2024 to reflect evolution toward AI and generative AI topics. 300+ attendees annually, featuring speakers from industry and academia.
@@ -109,7 +109,7 @@ Organizing committee member for PyData Virginia conference in Charlottesville, b
 
 ---
 
-## Education
+## <a name="education"></a>Education
 
 **Doctor of Philosophy, Physics** | The College of William & Mary | January 2015
 _Williamsburg, VA_
@@ -123,7 +123,7 @@ _Fredonia, NY_
 
 ---
 
-## Technical Skills
+## <a name="skills"></a>Technical Skills
 
 **Generative AI & LLMs:** openai, anthropic, langchain, huggingface, peft, prompt engineering
 **NLP & ML:** pytorch, spacy, allennlp, prodigy, transformers

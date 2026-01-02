@@ -1,3 +1,16 @@
-# main links links
-# Navigation disabled - single page portfolio
+# main links - anchor links to sections on homepage
 main:
+  - title: "Employment"
+    url: /#employment
+
+  - title: "Projects"
+    url: /#projects
+
+  - title: "Community"
+    url: /#community
+
+  - title: "Education"
+    url: /#education
+
+  - title: "Skills"
+    url: /#skills
