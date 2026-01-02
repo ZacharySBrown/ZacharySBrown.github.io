@@ -1,0 +1,433 @@
+# Claude Development Rules for Portfolio Website
+
+## CRITICAL: Current State is PERFECT - Do Not Break It!
+
+**User loves the current design.** Before making ANY changes, understand these principles.
+
+---
+
+## Site Overview
+
+**Live Site:** https://zacharysbrown.github.io
+**Type:** Single-page portfolio built with Jekyll + Academic Pages theme
+**Owner:** Zachary S. Brown, PhD - Applied Research Leader in Generative AI
+**Last Updated:** January 1, 2026
+
+---
+
+## Design Philosophy - MUST FOLLOW
+
+### ✓ DO Follow These Principles
+
+1. **Simplicity First**
+   - Clean markdown > Complex HTML
+   - Simple CSS > Fancy components
+   - Readable > Flashy
+
+2. **Bold Elements for Emphasis**
+   - All dates must be bold: `**October 2024 — Present**`
+   - Job titles and project names must be bold
+   - Dates styled in blue color via CSS
+
+3. **Consistent Formatting**
+   - Same date format throughout: `**Month Year — Month Year**` or `**Year**`
+   - Employment: Position | Company, then date on next line
+   - Projects: Title | Company | Date
+   - Community: Title | Organization | Date
+
+4. **Typography Hierarchy**
+   - H2: Section headers (Employment, Projects, etc.)
+   - H3: Subsection headers (job titles, project categories)
+   - H4: If needed for sub-items
+   - Bold: Dates, names, important info
+   - Italic: Technology lists, metadata
+
+5. **Spacing Consistency**
+   - 3rem between major sections
+   - 2.5rem for subsections
+   - 1.5rem for items
+   - Use `---` for section dividers (styled as gradient lines)
+
+### ✗ DO NOT Do These Things
+
+1. **NEVER Add Complex HTML Components**
+   - No `<div>` soup with custom classes
+   - No timeline HTML structures
+   - No card grids with complex markup
+   - Keep it markdown!
+
+2. **NEVER Break Markdown Rendering**
+   - Jekyll needs clean markdown to render properly
+   - HTML can break list rendering, spacing, etc.
+   - Test locally before pushing
+
+3. **NEVER Add Heavy JavaScript**
+   - Site is static and fast
+   - No frameworks (React, Vue, etc.)
+   - No complex interactions
+
+4. **NEVER Change Core Design Without Permission**
+   - User loves current look
+   - Ask before major visual changes
+   - Make incremental improvements only
+
+5. **NEVER Skip Date Verification**
+   - Always check dates against resume: `/Users/zak/prof/docs/resume_zsb_latest.pdf`
+   - Dates must be accurate
+   - Ask user if uncertain
+
+---
+
+## File Structure & Purpose
+
+### Critical Files (DO modify for content updates)
+
+**`_pages/about.md`** - THE ENTIRE SITE
+- Single source of truth for all content
+- Pure markdown with consistent formatting
+- Sections: About, Employment, Projects, Community, Education, Skills
+- Uses anchor links: `## <a name="employment"></a>Employment History`
+
+**`_data/navigation.yml`** - Top Navigation Bar
+- Anchor links to sections on homepage
+- Format: `url: /#section-name`
+- Don't add pages, just section links
+
+**`_config.yml`** - Site Configuration
+- Author info (name, bio, avatar, location, employer)
+- Site title and description
+- Keep profile info updated
+
+**`images/headshot.jpeg`** - Profile Photo
+- Current photo is formatted for circular display
+- 175x175px circular crop via CSS
+
+### Styling Files (modify carefully)
+
+**`_sass/_variables.scss`** - Colors & Typography
+```scss
+$primary-color: #2563EB;      // Blue for dates, links, accents
+$secondary-color: #7C3AED;     // Purple accent (rarely used)
+$darker-gray: #1F2937;         // Main text color
+$doc-font-size: 17;            // Base font size
+```
+
+**`_sass/_modern-portfolio.scss`** - Custom Styles (94 lines - keep it simple!)
+- Section header styling (bold, blue underline)
+- Date styling (bold, blue color)
+- HR divider styling (gradient lines)
+- Spacing and typography
+- Smooth scroll behavior
+
+**`assets/css/main.scss`** - Main Stylesheet
+- Imports all SCSS files
+- Includes `@import "modern-portfolio";`
+- Don't modify unless adding new SCSS files
+
+### Files to NEVER Modify
+
+**`_sass/_sidebar.scss`** - Avatar styling is perfect, don't touch!
+```scss
+img {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+```
+
+**Theme files** (`_layouts/`, `_includes/`) - Academic Pages theme core
+- Only modify if absolutely necessary
+- Changes here can break the entire site
+
+---
+
+## Common Tasks & How To Do Them
+
+### Adding a New Job
+
+1. Open `_pages/about.md`
+2. Find Employment History section
+3. Add at the top (most recent first):
+
+```markdown
+### Job Title | Company Name
+**Month Year — Present** (or end date)
+
+* Responsibility bullet point
+* Another responsibility
+* Key achievement
+```
+
+4. If this is now current position, update previous "Present" to end date
+5. Verify dates against resume
+6. Commit with clear message
+
+### Adding a New Project
+
+1. Open `_pages/about.md`
+2. Find Projects section
+3. Choose category: "Impactful 0-1 ML/AI Projects" or "ML Modernization Efforts"
+4. Add:
+
+```markdown
+**Project Name** | Company | **Year** (or **Year-Year**)
+
+Description of project, what was built, impact, results.
+
+_Technologies: Tool1, Tool2, Tool3, Tool4_
+```
+
+5. Keep projects in reverse chronological order
+
+### Updating Skills
+
+1. Open `_pages/about.md`
+2. Find Technical Skills section
+3. Update categories as needed:
+
+```markdown
+**Category Name:** Tool1, Tool2, Tool3, Tool4
+
+**Category Name:** Tool5, Tool6, Tool7
+```
+
+4. Keep primary skills first in each category
+5. Separate categories with blank line
+
+### Adding Community Activity
+
+```markdown
+**Activity Name** | Organization | **Dates**
+
+Description of activity, impact, role.
+```
+
+### Updating Profile Info
+
+1. Open `_config.yml`
+2. Update relevant fields:
+   - `name`: Full name
+   - `bio`: Short tagline (use | for separation)
+   - `employer`: Current company
+   - `avatar`: Filename in images/ folder
+
+### Changing Colors
+
+1. Open `_sass/_variables.scss`
+2. Modify color variables:
+   - `$primary-color`: Main accent (dates, underlines)
+   - `$text-color`: Body text
+   - `$darker-gray`: Headers
+
+3. Test locally to ensure contrast is good
+
+---
+
+## Testing & Deployment
+
+### Local Testing (Recommended Before Pushing)
+
+```bash
+cd /Users/zak/prof/ZacharySBrown.github.io
+
+# If bundler issue:
+gem install bundler:2.1.4
+
+# Install dependencies
+bundle install
+
+# Run local server
+bundle exec jekyll serve --livereload
+
+# Visit in browser
+open http://localhost:4000
+```
+
+### Deployment
+
+```bash
+git add .
+git commit -m "Clear description of what changed"
+git push origin master
+```
+
+GitHub Pages rebuilds automatically in 2-3 minutes.
+
+---
+
+## Content Guidelines
+
+### Date Formats to Use
+
+**Employment dates:**
+- Current: `**October 2024 — Present**`
+- Past: `**December 2022 — September 2024**`
+- Em dash (—) not hyphen (-)
+
+**Project dates:**
+- Single year: `**2024**`
+- Range: `**2023-2024**`
+- Hyphen (-) not em dash for year ranges
+
+**Education dates:**
+- `**January 2015**`
+- `**May 2008**`
+
+### Writing Style
+
+- **Concise bullets** - Start with action verbs
+- **Quantify impact** - "300+ attendees", "1500+ members", "9 person team"
+- **Emphasize results** - What shipped, what improved, what changed
+- **Technology lists** - Keep in italics at end of projects
+- **Bold for emphasis** - Dates, numbers, project names, companies
+
+### Section Order (DO NOT CHANGE)
+
+1. About (intro paragraph)
+2. Employment History
+3. Projects
+4. Community & Extracurricular
+5. Education
+6. Technical Skills
+
+This order is intentional based on user preferences.
+
+---
+
+## Resume Sync
+
+**Source of Truth:** `/Users/zak/prof/docs/resume_zsb_latest.pdf`
+
+When user mentions updating from resume:
+1. Read the PDF carefully
+2. Extract dates EXACTLY as written
+3. Ask clarifying questions if anything is ambiguous
+4. Verify all dates before committing
+5. Keep employment history in sync with resume
+6. Match job titles exactly
+
+---
+
+## Design System Reference
+
+### Colors
+
+```scss
+Primary Blue:   #2563EB (dates, links, underlines)
+Purple Accent:  #7C3AED (rarely used)
+Dark Text:      #1F2937 (headers, body)
+Medium Gray:    #6B7280 (italic text, metadata)
+Light Gray:     #F3F4F6 (backgrounds if needed)
+Border:         #E5E7EB
+```
+
+### Typography Scale
+
+```scss
+Section Headers (H2):   2em (34px) - Bold, blue underline
+Subsections (H3):       1.6em (27.2px) - Bold
+Items (H4):             1.3em (22.1px) - Semibold
+Emphasis:               1.05em (17.85px) - Body with bold/italic
+Body:                   17px base
+```
+
+### Spacing
+
+```scss
+Between sections:       3rem (48px)
+Between subsections:    2.5rem (40px)
+Between items:          1.5rem (24px)
+Line height:            1.6 (consistent readability)
+```
+
+---
+
+## Troubleshooting
+
+### Site Broken After Push?
+
+1. Check GitHub Actions for build errors
+2. Look for YAML frontmatter errors in about.md
+3. Check for unclosed bold/italic markers
+4. Revert last commit if needed: `git revert HEAD`
+
+### Dates Not Showing in Blue?
+
+1. Ensure dates are bold: `**Date**`
+2. Check CSS is loaded: `_sass/_modern-portfolio.scss` imported
+3. Check browser cache (hard refresh)
+
+### Navigation Not Working?
+
+1. Verify anchor links: `<a name="section"></a>` in about.md
+2. Check navigation.yml has `url: /#section`
+3. Ensure smooth scroll CSS is present
+
+### Profile Photo Not Circular?
+
+1. Check `_sass/_sidebar.scss` has:
+   - `width: 175px`
+   - `height: 175px`
+   - `border-radius: 50%`
+   - `object-fit: cover`
+2. Clear browser cache
+
+---
+
+## What Made Current Design Successful
+
+### Iteration History
+
+1. **Phase 1:** Added content (good)
+2. **Phase 2:** Made single-page (great decision)
+3. **Phase 3:** Added section navigation (perfect)
+4. **Phase 4:** Tried complex timeline/cards (BROKE - too complex)
+5. **Phase 5:** Simplified to markdown (SUCCESS - current design)
+
+### Why Phase 5 Works
+
+- **Simple markdown** renders consistently
+- **Bold dates in blue** stand out perfectly
+- **Clean hierarchy** is easy to scan
+- **No complex HTML** means no breaking
+- **Fast to load** and maintain
+- **Mobile-friendly** by default
+- **User loves it!**
+
+### Key Insight
+
+**Less is more.** The simple, clean design with bold typography beats fancy components every time.
+
+---
+
+## Before Making Changes - Checklist
+
+- [ ] Read this entire file
+- [ ] Understand why current design works
+- [ ] Ask user if uncertain about changes
+- [ ] Test locally if possible
+- [ ] Verify dates if updating employment/projects
+- [ ] Keep it simple - markdown over HTML
+- [ ] Commit with clear message
+- [ ] Check live site 3 minutes after push
+
+---
+
+## Contact
+
+**User:** Zachary S. Brown (Zak)
+**Email:** zachary.s.brown@gmail.com
+**Preferences:** Simple, clean, bold typography, fast sites
+**Dislikes:** Complex HTML, broken formatting, heavy frameworks
+
+---
+
+## Additional Documentation
+
+See `DEVELOPMENT_LOG.md` for complete project history and detailed change log.
+
+---
+
+**Last Updated:** January 1, 2026
+**Current Status:** ✅ Perfect - Do not break!
