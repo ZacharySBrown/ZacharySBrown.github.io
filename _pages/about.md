@@ -8,13 +8,18 @@ redirect_from:
   - /about.html
 ---
 
-Former physicist turned data scientist. My primary area of interest now is **modern neural network frameworks for natural language processing**. I also have experience with distributed computing, designing/tuning/evaluating information retrieval systems, and streaming data processing. Lifelong educator and community builder. 
+Former physicist turned data scientist and applied research leader. Currently leading generative AI initiatives for legal research at Thomson Reuters Labs. My primary areas of interest are **production generative AI systems**, **agentic workflows**, and **evaluation frameworks for large language models**. Deep experience with modern neural architectures for NLP, distributed computing, and building ML systems at scale. Lifelong educator and community builder.
+
+## Recent Highlights
+
+**First Agentic Legal Research System:** Led Westlaw Advantage Deep Research at Thomson Reuters - first multi-agent legal research system deployed to market, transforming how legal professionals conduct comprehensive research.
+
+**S&P's First Generative AI Solution:** Technical lead for S&P Global's inaugural generative AI product, bringing large language models to financial document analysis at enterprise scale.
 
 Recent Reading List
 ======
-* [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
-* [Retrieval Augmented Generation: Streamlining the creation of intelligent natural language processing models](https://ai.facebook.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/)
-* [LUKE: Deep Contextualized Entity Representations with Entity-aware Self-attention](https://arxiv.org/abs/2010.01057v1)
-* [Climbing towards NLU:
-On Meaning, Form, and Understanding in the Age of Data](https://www.aclweb.org/anthology/2020.acl-main.463.pdf)
+* [Anthropic's Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/index/constitutional-ai-harmlessness-from-ai-feedback)
+* [GPT-4 Technical Report](https://arxiv.org/abs/2303.08774)
+* [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)
+* [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290)
 
